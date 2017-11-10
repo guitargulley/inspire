@@ -4,15 +4,23 @@
 	<meta charset="UTF-8">
 	<title>Inspire</title>
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
-<body id="body">
+<body id="body" onload="app.controllers.imageController.getImage(),app.controllers.quoteController.getQuote()">
 	<div id="weather">
 		Your Weather Template
 	</div>
 
-	<div id="quote">
-		The Quote
+	<div id="quote" >
+		
+		<!-- <div class="row">
+			<div class="col-sm-8 col-sm-offse-2 text-center">
+				<h1>quote</h1>
+				<h4>author</h4>
+			</div>
+		</div> -->
+		
 	</div>
 
 	<div id="todo">
