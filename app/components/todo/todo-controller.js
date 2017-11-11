@@ -18,26 +18,38 @@ function TodoController() {
 		//WHAT IS MY PURPOSE?
 		//BUILD YOUR TODO TEMPLATE HERE
 		var todoElem = document.getElementById('listItems')
+		var todoTotal = document.getElementById('todoTotal')
 		var template = ''
+		var completed = 0
 		//DONT FORGET TO LOOP
 		for (var i = 0; i < todos.length; i++) {
+			debugger
 			var todo = todos[i];
+			if(todo.completed == "true"){
+				todo.completed = true
+			}
+			if(todo.completed == "false"){
+				todo.completed = false
+			}
 			if(todo.completed){
 				template+=`
 				<div class="checkbox">
-					<label onclick="app.controllers.todoController.toggleTodoStatus(${i})">
+					<label onchange="app.controllers.todoController.toggleTodoStatus(${i})">
 					<input type="checkbox" value="${i}" checked><s>${todo.todo}</s></label>
-					<a onchange="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+					<a onclick="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 	  			</div>
 				`
+				completed++
 			}else{	
 				template+=`
 				<div class="checkbox">
-				<label onchange="app.controllers.todoController.toggleTodoStatus(${i})"><input type="checkbox" value="${i}">${todo.todo}</label>
+				<label onchange="app.controllers.todoController.toggleTodoStatus(${i})">
+				<input type="checkbox" value="${i}">${todo.todo}</label>
 				</div>
 				`
 			}
 		}
+		todoTotal.innerHTML = `${completed} of ${todos.length}`
 		todoElem.innerHTML = template
 
 		
@@ -47,7 +59,7 @@ function TodoController() {
 	this.showTodoForm = function showForm() {
 		if (formstate) {
 		  showButton.innerText = 'Add Something To Do'
-		  showButton.className = 'btn btn-info'
+		  showButton.className = 'btn add'
 		  toDoForm.classList.add('hidden')
 		  formstate = false
 		} else {
@@ -72,6 +84,9 @@ function TodoController() {
 		}
 		document.getElementById('toDoForm').classList.add('hidden')
 		document.getElementById('show-form-btn').classList.remove('hidden')
+		showButton.innerText = 'Add Something To Do'
+		showButton.className = 'btn btn-info'
+		
 
 		//PASSES THE NEW TODO TO YOUR SERVICE
 		//DON'T FORGET TO REDRAW THE SCREEN WITH THE NEW TODO
@@ -81,15 +96,15 @@ function TodoController() {
 	}
 
 	this.toggleTodoStatus = function toggleTodoStatus(i) {
-		debugger
+		
 		// asks the service to edit the todo status
 		todoService.toggleTodoStatus(i, getTodos)
 		// YEP THATS IT FOR ME
 	}
 
-	this.removeTodo = function removeTodo(todo) {
+	this.removeTodo = function removeTodo(i) {
 		// ask the service to run the remove todo with this id
-		todoService.removeTodo(todo, getTodos)
+		todoService.removeTodo(i, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus
 	}
 	todoService.getTodos(draw)

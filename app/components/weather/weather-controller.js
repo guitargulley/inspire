@@ -6,10 +6,10 @@ function WeatherController(){
 	function draw(myWeather){
 		var weatherElem = document.getElementById('weather')
 		template = `
-		<div class="row">
-			<div class="col-sm-2 col-sm-offset-10">
+		
+			<div class="col-sm-2 col-sm-offset-10 weather">
 				<div class="row">
-					<div class="col-sm-6 text-left">
+					<div class="col-sm-6 text-right">
 						<img src="http://openweathermap.org/img/w/${myWeather.icon}.png">
 						<h4>${myWeather.city}</h4>
 					</div>
@@ -19,7 +19,7 @@ function WeatherController(){
 					</div>
 				</div>
 			</div>
-		</div>
+		
 		`
 		weatherElem.innerHTML=template
 	}

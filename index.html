@@ -9,47 +9,59 @@
 </head>
 
 <body id="body" onload="app.controllers.imageController.getImage(),app.controllers.quoteController.getQuote(),app.controllers.weatherController.getWeather()">
-	<div id="weather">
-		<!-- <div class="row">
-			<div class="col-sm-2 col-sm-offset-10">
-				<h3>icon, temp</h3>
-				<h4>city</h4>
-				<h5>description</h5>
-			</div>
-		</div> -->
-	</div>
-
-	<div id="quote">
-
-		<!-- <div class="row">
-			<div class="col-sm-8 col-sm-offse-2 text-center">
-				<h1>quote</h1>
-				<h4>author</h4>
-			</div>
-		</div> -->
-
-	</div>
-
-	<div id="todo">
+	<div class="container-fluid">
 		<div class="row">
-			<div class="col-sm-4 col-sm-offset-8">
-				<h4>To DO:
-					<span id="todoTotal"></span>
-				</h4>
-				<div id="listItems">
-					
-				</div>
-				<button class="btn btn-info" id="show-form-btn" onclick="app.controllers.todoController.showTodoForm()">Add Something To Do</button>
-				<form id="toDoForm" class="form hidden" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-					<div class="form-group">
-						<label for="toDo">To Do:</label>
-						<input type="text" name="toDo" class="form-control" placeholder="TO DO?">
-					</div>
-					<div class="form-group">
-						<button class="btn btn-success" type="submit">Add To Do</button>
-					</div>
-				</form>
+			<div class="col-xs-1 next-image">
+				<button onclick="app.controllers.imageController.getImage()" id="next-image">
+					<i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
+				</button>
 			</div>
+			<div id="weather">
+				<!-- <div class="row">
+					<div class="col-sm-2 col-sm-offset-10">
+						<h3>icon, temp</h3>
+						<h4>city</h4>
+						<h5>description</h5>
+					</div>
+				</div> -->
+			</div>
+		</div>
+
+		<div id="quote">
+
+			<!-- <div class="row">
+				<div class="col-sm-8 col-sm-offse-2 text-center">
+					<h1>quote</h1>
+					<h4>author</h4>
+				</div>
+			</div> -->
+
+		</div>
+
+		<div id="todo">
+			<div class="row todo fixed-bottom">
+				<div class="col-sm-2 col-sm-offset-10 todo-area">
+
+
+					<h4>Completed:
+						<span id="todoTotal"></span>
+					</h4>
+					<div id="listItems">
+
+					</div>
+					<button class="btn add" id="show-form-btn" onclick="app.controllers.todoController.showTodoForm()">Add Something To Do</button>
+					<form id="toDoForm" class="form hidden" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+						<div class="form-group">
+							<label for="toDo">To Do:</label>
+							<input type="text" name="toDo" class="form-control" placeholder="TO DO?">
+						</div>
+						<div class="form-group">
+							<button class="btn btn-success" type="submit">Add To Do</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
 		</div>
 	</div>
 

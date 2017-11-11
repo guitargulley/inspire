@@ -14,9 +14,9 @@ function WeatherService() {
 				city : res.name,
 				icon : res.weather[0].icon,
 				description : res.weather[0].description,
-				kelvin : res.main.temp.toFixed(1),
-				celcius : (res.main.temp - 273.15).toFixed(1),
-				fahrenheit : (res.main.temp * (9/5) - 459.67).toFixed(1)
+				kelvin : res.main.temp.toFixed(0),
+				celcius : (res.main.temp - 273.15).toFixed(0),
+				fahrenheit : (res.main.temp * (9/5) - 459.67).toFixed(0)
 			}
 			
 			console.log(myWeather)

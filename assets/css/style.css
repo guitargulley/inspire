@@ -1,6 +1,46 @@
 body{
     background-size: cover;
     background-repeat: no-repeat;
-    
+    background-attachment: fixed;
+    height: 100%;
 
+
+}
+.author{
+    display:none;
+}
+.quote-content:hover{
+    cursor:pointer;
+}
+.quote-content:hover .author{
+    display:block;
+}
+.weather{
+    background-color: rgba(0, 0, 0, 0.295);
+    color:whitesmoke;
+}
+.todo{
+    position:fixed;
+    bottom: 0;
+    width:100%;
+}
+.todo-area{
+    background-color: rgba(0, 0, 0, 0.295);
+    color:whitesmoke;
+}
+.add{
+    background:black;
+    color:whitesmoke;
+    outline:none;
+}
+.next-image{
+    height: 15px;
+    margin-bottom: 3px;
+    border:none;
+}
+.next-image button{
+    background-color: rgba(0, 0, 0, 0.295);
+    color:whitesmoke;
+    border:none;
+    outline:none;
 }

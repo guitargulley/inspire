@@ -8,9 +8,9 @@ function QuoteController(){
 		template = 
 
 		`<div class="row">
-		<div class="col-sm-8 col-sm-offset-2 text-center">
-			<h1>${data.quote}</h1>
-			<h4>${data.author}</h4>
+		<div class="col-sm-8 col-sm-offset-2 text-center quote-content">
+			<h3>${data.quote}</h3>
+			<h4 class="author">--${data.author}--</h4>
 		</div>
 	</div>`
 

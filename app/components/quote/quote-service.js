@@ -8,6 +8,8 @@ function QuoteService(){
 		$.get(apiUrl, function(res){
 			res = JSON.parse(res)
 			console.log('Quote Data:', res)
+			console.log(res.quote.length)
+			
 			
 			//Now What?
 			callWhenDone(res)
