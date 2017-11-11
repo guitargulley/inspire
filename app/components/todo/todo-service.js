@@ -18,7 +18,7 @@ function TodoService() {
 			.fail(logError)
 	}
 
-	this.addTodo = function (todo, cb) {
+	this.addTodo = function addTodo(todo, cb) {
 		// WHAT IS THIS FOR???
 		$.post(baseUrl, todo)
 			.then(function(res){ 
@@ -29,12 +29,12 @@ function TodoService() {
 			.fail(logError)
 	}
 
-	this.toggleTodoStatus = function (todo) {
+	this.toggleTodoStatus = function toggleTodoStatus(i, cb) {
 		// MAKE SURE WE THINK THIS ONE THROUGH
 		//STEP 1: Find the todo by its index **HINT** todoList
-		var todoIndex = todoList.indexOf(todo)
+		var todoIndex = todoList[i]
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
-
+		todoIndex.completed = !todoIndex.completed
 		//STEP 3: Here is that weird Ajax request because $.put doesn't exist
 		$.ajax({
 			method: 'PUT',
@@ -44,7 +44,7 @@ function TodoService() {
 		})
 			.then(function (res) {
 				//DO YOU WANT TO DO ANYTHING WITH THIS?
-
+				cb()
 			})
 			.fail(logError)
 	}
@@ -62,5 +62,5 @@ function TodoService() {
 				cb()
 			})
 	}
-this.removeTodo()
+
 }

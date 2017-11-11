@@ -22,12 +22,21 @@ function TodoController() {
 		//DONT FORGET TO LOOP
 		for (var i = 0; i < todos.length; i++) {
 			var todo = todos[i];
-		template+=`
-
-		<div class="checkbox">
-		<label onchange="app.controllers.todoController.toggleTodoStatus()"><input type="checkbox" value="${i}">${todo.todo}</label>
-	  </div>
-		`
+			if(!todo.completed){
+				template+=`
+				<div class="checkbox">
+					<label onclick="app.controllers.todoController.toggleTodoStatus(${i})">
+					<input type="checkbox" value="${i}" >${todo.todo}</label>
+					<a onclick="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+	  			</div>
+				`
+			}else{	
+				template+=`
+				<div class="checkbox">
+				<label onclick="app.controllers.todoController.toggleTodoStatus(${i})"><input type="checkbox" value="${i}" >${todo.todo}</label>
+				</div>
+				`
+			}
 		}
 		todoElem.innerHTML = template
 
@@ -71,13 +80,13 @@ function TodoController() {
 		                         //^^^^^^^ EXAMPLE OF HOW TO GET YOUR TOODOS AFTER AN EDIT
 	}
 
-	this.toggleTodoStatus = function (todo) {
+	this.toggleTodoStatus = function toggleTodoStatus(i) {
 		// asks the service to edit the todo status
-		todoService.toggleTodoStatus(todoId, getTodos)
+		todoService.toggleTodoStatus(i, getTodos)
 		// YEP THATS IT FOR ME
 	}
 
-	this.removeTodo = function (todo) {
+	this.removeTodo = function removeTodo(todo) {
 		// ask the service to run the remove todo with this id
 		todoService.removeTodo(todo, getTodos)
 		// ^^^^ THIS LINE OF CODE PROBABLY LOOKS VERY SIMILAR TO THE toggleTodoStatus

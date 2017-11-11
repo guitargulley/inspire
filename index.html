@@ -5,6 +5,7 @@
 	<title>Inspire</title>
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body id="body" onload="app.controllers.imageController.getImage(),app.controllers.quoteController.getQuote(),app.controllers.weatherController.getWeather()">
@@ -18,27 +19,28 @@
 		</div> -->
 	</div>
 
-	<div id="quote" >
-		
+	<div id="quote">
+
 		<!-- <div class="row">
 			<div class="col-sm-8 col-sm-offse-2 text-center">
 				<h1>quote</h1>
 				<h4>author</h4>
 			</div>
 		</div> -->
-		
+
 	</div>
 
 	<div id="todo">
 		<div class="row">
 			<div class="col-sm-4 col-sm-offset-8">
-				<h4>To DO:<span id="todoTotal"></span></h4>
-				<ul id="listItems">
-
-				</ul>
-				<button class="btn btn-info" id="show-form-btn"onclick="app.controllers.todoController.showTodoForm()">Add Something To Do</button>
-				<button class="btn btn-danger" id="delete" onclick="app.controllers.todoControllers.removeTodo()">DELETE</button>
-				<form id="toDoForm"class="form hidden"onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+				<h4>To DO:
+					<span id="todoTotal"></span>
+				</h4>
+				<div id="listItems">
+					
+				</div>
+				<button class="btn btn-info" id="show-form-btn" onclick="app.controllers.todoController.showTodoForm()">Add Something To Do</button>
+				<form id="toDoForm" class="form hidden" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 					<div class="form-group">
 						<label for="toDo">To Do:</label>
 						<input type="text" name="toDo" class="form-control" placeholder="TO DO?">

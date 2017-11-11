@@ -5,7 +5,7 @@ function WeatherService() {
 
 	var myWeather = {}
 	this.getWeather = function (callWhenDone) {
-		debugger
+		
 		$.get(apiUrl, function (res) {
 			res = JSON.parse(res)
 			localStorage.setItem('weather', JSON.stringify(res))
