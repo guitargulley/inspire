@@ -7,9 +7,15 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
-<body id="body" onload="app.controllers.imageController.getImage(),app.controllers.quoteController.getQuote()">
+<body id="body" onload="app.controllers.imageController.getImage(),app.controllers.quoteController.getQuote(),app.controllers.weatherController.getWeather()">
 	<div id="weather">
-		Your Weather Template
+		<!-- <div class="row">
+			<div class="col-sm-2 col-sm-offset-10">
+				<h3>icon, temp</h3>
+				<h4>city</h4>
+				<h5>description</h5>
+			</div>
+		</div> -->
 	</div>
 
 	<div id="quote" >
@@ -24,8 +30,25 @@
 	</div>
 
 	<div id="todo">
-		<form onsubmit=""></form>
-		A Todo List
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-8">
+				<h4>To DO:<span id="todoTotal"></span></h4>
+				<ul id="listItems">
+
+				</ul>
+				<button class="btn btn-info" id="show-form-btn"onclick="app.controllers.todoController.showTodoForm()">Add Something To Do</button>
+				<button class="btn btn-danger" id="delete" onclick="app.controllers.todoControllers.removeTodo()">DELETE</button>
+				<form id="toDoForm"class="form hidden"onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+					<div class="form-group">
+						<label for="toDo">To Do:</label>
+						<input type="text" name="toDo" class="form-control" placeholder="TO DO?">
+					</div>
+					<div class="form-group">
+						<button class="btn btn-success" type="submit">Add To Do</button>
+					</div>
+				</form>
+			</div>
+		</div>
 	</div>
 
 
