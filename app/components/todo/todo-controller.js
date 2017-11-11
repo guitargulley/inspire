@@ -22,18 +22,18 @@ function TodoController() {
 		//DONT FORGET TO LOOP
 		for (var i = 0; i < todos.length; i++) {
 			var todo = todos[i];
-			if(!todo.completed){
+			if(todo.completed){
 				template+=`
 				<div class="checkbox">
 					<label onclick="app.controllers.todoController.toggleTodoStatus(${i})">
-					<input type="checkbox" value="${i}" >${todo.todo}</label>
+					<input type="checkbox" value="${i}" checked><s>${todo.todo}</s></label>
 					<a onchange="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 	  			</div>
 				`
 			}else{	
 				template+=`
 				<div class="checkbox">
-				<label onchange="app.controllers.todoController.toggleTodoStatus(${i})"><input type="checkbox" value="${i}" >${todo.todo}</label>
+				<label onchange="app.controllers.todoController.toggleTodoStatus(${i})"><input type="checkbox" value="${i}">${todo.todo}</label>
 				</div>
 				`
 			}
@@ -81,6 +81,7 @@ function TodoController() {
 	}
 
 	this.toggleTodoStatus = function toggleTodoStatus(i) {
+		debugger
 		// asks the service to edit the todo status
 		todoService.toggleTodoStatus(i, getTodos)
 		// YEP THATS IT FOR ME
