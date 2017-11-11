@@ -27,20 +27,20 @@ function TodoController() {
 				<div class="checkbox">
 					<label onclick="app.controllers.todoController.toggleTodoStatus(${i})">
 					<input type="checkbox" value="${i}" >${todo.todo}</label>
-					<a onclick="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+					<a onchange="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 	  			</div>
 				`
 			}else{	
 				template+=`
 				<div class="checkbox">
-				<label onclick="app.controllers.todoController.toggleTodoStatus(${i})"><input type="checkbox" value="${i}" >${todo.todo}</label>
+				<label onchange="app.controllers.todoController.toggleTodoStatus(${i})"><input type="checkbox" value="${i}" >${todo.todo}</label>
 				</div>
 				`
 			}
 		}
 		todoElem.innerHTML = template
 
-		console.log(todos)
+		
 	}
 	var formstate = false
 	var showButton = document.getElementById('show-form-btn')

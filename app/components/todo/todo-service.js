@@ -32,14 +32,15 @@ function TodoService() {
 	this.toggleTodoStatus = function toggleTodoStatus(i, cb) {
 		// MAKE SURE WE THINK THIS ONE THROUGH
 		//STEP 1: Find the todo by its index **HINT** todoList
-		var todoIndex = todoList[i]
+		var todo = todoList[i]
 		//STEP 2: Change the completed flag to the opposite of what is is **HINT** todo.completed = !todo.completed
-		todoIndex.completed = !todoIndex.completed
+		todo.completed = !todo.completed
 		//STEP 3: Here is that weird Ajax request because $.put doesn't exist
+		console.log(todo)
 		$.ajax({
 			method: 'PUT',
 			contentType: 'application/json',
-			url: baseUrl + '/' + todoIndex,
+			url: baseUrl + '/' + i,
 			data: JSON.stringify(todo)
 		})
 			.then(function (res) {
