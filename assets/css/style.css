@@ -9,6 +9,11 @@ body{
 .author{
     display:none;
 }
+.quote-content{
+    background:rgba(78, 45, 45, 0.438);
+    color:whitesmoke;
+    border-radius: 20px;
+}
 .quote-content:hover{
     cursor:pointer;
 }

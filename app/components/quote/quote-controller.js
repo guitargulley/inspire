@@ -22,5 +22,5 @@ function QuoteController(){
 		console.log('here')
 	}
 	
-	// this.getQuote()
+	this.getQuote()
 }

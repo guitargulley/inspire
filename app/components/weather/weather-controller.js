@@ -28,5 +28,5 @@ function WeatherController(){
 	}
 		//What can you do with this weather object?
 	
-
+	this.getWeather()
 }

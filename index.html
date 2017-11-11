@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body id="body" onload="app.controllers.imageController.getImage(),app.controllers.quoteController.getQuote(),app.controllers.weatherController.getWeather()">
+<body id="body" onload="app.controllers.clockController.updateClock(); setInterval('app.controllers.clockController.updateClock()', 1000)">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-1 next-image">
@@ -40,6 +40,14 @@
 
 		<div id="todo">
 			<div class="row todo fixed-bottom">
+				<div id="clock">
+
+					<div class="col-sm-4">
+						<h1>hours:minutes:seconds timeofday</h1>
+					</div>
+				</div>
+				
+				
 				<div class="col-sm-2 col-sm-offset-10 todo-area">
 
 
@@ -75,12 +83,14 @@
 	<script src="app/components/image/image-service.js"></script>
 	<script src="app/components/quote/quote-service.js"></script>
 	<script src="app/components/todo/todo-service.js"></script>
+	<script src="app/components/clock/clock-service.js"></script>
 
 	<!--Controllers-->
 	<script src="app/components/weather/weather-controller.js"></script>
 	<script src="app/components/image/image-controller.js"></script>
 	<script src="app/components/quote/quote-controller.js"></script>
 	<script src="app/components/todo/todo-controller.js"></script>
+	<script src="app/components/clock/clock-controller.js"></script>
 
 	<!--Initialize App-->
 	<script src="app/init.js"></script>

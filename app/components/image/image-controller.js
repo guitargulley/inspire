@@ -18,7 +18,7 @@ function ImageController() {
 		console.log(data.url)
 	}
 
-
+	this.getImage()
 	
 }
 
