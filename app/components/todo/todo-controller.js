@@ -23,7 +23,7 @@ function TodoController() {
 		var completed = 0
 		//DONT FORGET TO LOOP
 		for (var i = 0; i < todos.length; i++) {
-			debugger
+			
 			var todo = todos[i];
 			if(todo.completed == "true"){
 				todo.completed = true
@@ -36,7 +36,7 @@ function TodoController() {
 				<div class="checkbox">
 					<label onchange="app.controllers.todoController.toggleTodoStatus(${i})">
 					<input type="checkbox" value="${i}" checked><s>${todo.todo}</s></label>
-					<a onclick="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+					<a onclick="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o"></i></a>
 	  			</div>
 				`
 				completed++
@@ -64,7 +64,7 @@ function TodoController() {
 		  formstate = false
 		} else {
 		  showButton.innerText = 'Cancel'
-		  showButton.className = 'btn btn-danger'
+		  showButton.className = 'btn'
 		  toDoForm.classList.remove('hidden')
 		  formstate = true
 		}
@@ -85,7 +85,7 @@ function TodoController() {
 		document.getElementById('toDoForm').classList.add('hidden')
 		document.getElementById('show-form-btn').classList.remove('hidden')
 		showButton.innerText = 'Add Something To Do'
-		showButton.className = 'btn btn-info'
+		showButton.className = 'btn'
 		
 
 		//PASSES THE NEW TODO TO YOUR SERVICE

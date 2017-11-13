@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
-<body id="body" onload="app.controllers.clockController.updateClock(); setInterval('app.controllers.clockController.updateClock()', 1000)">
+<body id="body" onload="setInterval('app.controllers.clockController.updateClock()', 1000)">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-1 next-image">
@@ -17,38 +17,23 @@
 				</button>
 			</div>
 			<div id="weather">
-				<!-- <div class="row">
-					<div class="col-sm-2 col-sm-offset-10">
-						<h3>icon, temp</h3>
-						<h4>city</h4>
-						<h5>description</h5>
-					</div>
-				</div> -->
+				
 			</div>
 		</div>
 
-		<div id="quote">
+		<div id="clock">
+			<div class="row">
 
-			<!-- <div class="row">
-				<div class="col-sm-8 col-sm-offse-2 text-center">
-					<h1>quote</h1>
-					<h4>author</h4>
-				</div>
-			</div> -->
-
+			</div>
 		</div>
 
-		<div id="todo">
-			<div class="row todo fixed-bottom">
-				<div id="clock">
+		<div class="row footer fixed-bottom">
+			<div id="quote">
 
-					<div class="col-sm-4">
-						<h1>hours:minutes:seconds timeofday</h1>
-					</div>
-				</div>
-				
-				
-				<div class="col-sm-2 col-sm-offset-10 todo-area">
+			</div>
+
+			<div id="todo">
+				<div class="col-sm-2 col-sm-offset-1 todo-area">
 
 
 					<h4>Completed:
@@ -61,10 +46,10 @@
 					<form id="toDoForm" class="form hidden" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 						<div class="form-group">
 							<label for="toDo">To Do:</label>
-							<input type="text" name="toDo" class="form-control" placeholder="TO DO?">
+							<input type="text" name="toDo" class="form-control" placeholder="TO DO?" required>
 						</div>
 						<div class="form-group">
-							<button class="btn btn-success" type="submit">Add To Do</button>
+							<button class="btn" type="submit">Add To Do</button>
 						</div>
 					</form>
 				</div>

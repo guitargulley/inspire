@@ -6,14 +6,20 @@ body{
 
 
 }
+.todo-area{
+    border: 2px ridge whitesmoke;
+}
+i{
+    color: whitesmoke;
+}
+.btn{
+    background-color: black;
+    color: whitesmoke;
+}
 .author{
     display:none;
 }
-.quote-content{
-    background:rgba(78, 45, 45, 0.438);
-    color:whitesmoke;
-    border-radius: 20px;
-}
+
 .quote-content:hover{
     cursor:pointer;
 }
@@ -23,15 +29,65 @@ body{
 .weather{
     background-color: rgba(0, 0, 0, 0.295);
     color:whitesmoke;
+    border: 2px ridge whitesmoke;
+    border-radius: 20px;
 }
-.todo{
+.footer{
     position:fixed;
     bottom: 0;
     width:100%;
-}
-.todo-area{
     background-color: rgba(0, 0, 0, 0.295);
     color:whitesmoke;
+}
+.time{
+    display: inline-block;
+    margin-top: 10%;
+    margin-left: 30%;
+    border: 2px ridge whitesmoke;
+    border-radius: 30px;
+    padding: 10px;
+    background-color:rgba(0, 0, 0, 0.295);
+    color: whitesmoke;
+}
+.time h1{
+    font-size: 80px;
+}
+.colon{
+    width: 20px;
+    display: inline-block;
+    
+}
+.hours{
+    border: 4px ridge whitesmoke;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100px;
+    background-color:rgba(0, 0, 0, 0.295);
+    color: whitesmoke;
+}
+.minutes{
+    border: 4px ridge whitesmoke;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100px;
+    background-color:rgba(0, 0, 0, 0.295);
+    color: whitesmoke;
+}
+.seconds{
+    border: 4px ridge whitesmoke;
+    border-radius: 20px;
+    display: inline-block;
+    width: 100px;
+    background-color:rgba(0, 0, 0, 0.295);
+    color: whitesmoke;
+}
+.time-of-day{
+    border: 4px ridge whitesmoke;
+    border-radius: 20px;
+    display: inline-block;
+    width: 130px;
+    background-color:rgba(0, 0, 0, 0.295);
+    color: whitesmoke;
 }
 .add{
     background:black;
