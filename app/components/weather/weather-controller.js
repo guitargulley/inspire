@@ -1,12 +1,9 @@
 function WeatherController(){
 	var weatherService = new WeatherService();
 	
-
-
 	function draw(myWeather){
 		var weatherElem = document.getElementById('weather')
-		template = `
-		
+		template = `		
 			<div class="col-sm-2 col-sm-offset-10 weather">
 				<div class="row">
 					<div class="col-sm-6 text-right">
@@ -18,15 +15,14 @@ function WeatherController(){
 						<h5>${myWeather.description}</h5>
 					</div>
 				</div>
-			</div>
-		
+			</div>		
 		`
 		weatherElem.innerHTML=template
 	}
+
 	this.getWeather = function getWeather(){
 		weatherService.getWeather(draw)
 	}
-		//What can you do with this weather object?
 	
 	this.getWeather()
 }

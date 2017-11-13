@@ -1,11 +1,11 @@
 function ClockController() {
     var clockService = new ClockService()
 
-
     function draw(currentTimeObj) {
         var template = ''
         var clockElem = document.getElementById('clock')
-        template += `
+        template += 
+        `
         <div class="time">
             <div class="text-center hours">
                 <h1> ${currentTimeObj.hours}</h1>
@@ -29,12 +29,10 @@ function ClockController() {
             <div class="col-sm-6 col-sm-offset-3 text-center greeting">
                 <h2>${currentTimeObj.greeting}</h2>
             </div>
-        </div>
-            
-            `
+        </div> 
+        `
         clockElem.innerHTML=template
     }
-
 
     this.updateClock = function updateClock() {
         clockService.updateClock(draw)

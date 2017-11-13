@@ -10,32 +10,34 @@
 
 <body id="body" onload="setInterval('app.controllers.clockController.updateClock()', 1000)">
 	<div class="container-fluid">
+		<!-- HEADER includes image change and weather app -->
 		<div class="row">
+			<!-- image change -->
 			<div class="col-xs-1 next-image">
 				<button onclick="app.controllers.imageController.getImage()" id="next-image">
 					<i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
 				</button>
 			</div>
+			<!-- weather app -->
 			<div id="weather">
-				
+
 			</div>
 		</div>
-
+		<!-- CLOCK APPLICATION -->
 		<div id="clock">
 			<div class="row">
 
 			</div>
 		</div>
-
+		<!-- footer includes quote and to-do list -->
 		<div class="row footer fixed-bottom">
+			<!-- Quote -->
 			<div id="quote">
 
 			</div>
-
+			<!-- TO-DO list -->
 			<div id="todo">
 				<div class="col-sm-2 col-sm-offset-1 todo-area">
-
-
 					<h4>Completed:
 						<span id="todoTotal"></span>
 					</h4>
@@ -43,6 +45,7 @@
 
 					</div>
 					<button class="btn add" id="show-form-btn" onclick="app.controllers.todoController.showTodoForm()">Add Something To Do</button>
+					<!-- hidden form to submit new To do item -->
 					<form id="toDoForm" class="form hidden" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
 						<div class="form-group">
 							<label for="toDo">To Do:</label>
