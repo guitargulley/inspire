@@ -13,7 +13,15 @@ this.updateClock = function updateClock(cb){
     var timeOfDay = (currentHours < 12) ? "AM": "PM"
     currentHours = (currentHours > 12) ? currentHours - 12 : currentHours
     currentHours = (currentHours == 0) ? 12 : currentHours
-    greeting = (timeOfDay == "AM") ? 'Good Morning' : 'Good Evening'
+    // greeting = (timeOfDay == "AM") ? 'Good Morning' : 'Good Evening'
+
+    if(timeOfDay == "AM"){
+        greeting = 'Good Morning'
+    }else if(timeOfDay == "PM" && currentHours < 5){
+        greeting = 'Good Afternoon'
+    }else{
+        greeting = 'Good Evening'
+    }
     
     currentTimeObj = {
         hours:currentHours,
