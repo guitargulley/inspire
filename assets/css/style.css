@@ -3,8 +3,6 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     height: 100%;
-
-
 }
 .todo-area{
     border: 2px ridge whitesmoke;
@@ -48,6 +46,7 @@ i{
     padding: 10px;
     background-color:rgba(0, 0, 0, 0.295);
     color: whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
 }
 .time h1{
     font-size: 80px;
