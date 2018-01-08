@@ -1,15 +1,17 @@
 function TodoService() {
 	// A local copy of your todos
 	var todoList = []
-	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/brandongulley'
+	var baseUrl = "http://localhost:3000/api/"
+	// 'https://inspire-server.herokuapp.com/api/todos/brandongulley'
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
 	}
 
 	this.getTodos = function getTodos(draw) {
-		$.get(baseUrl)
+		$.get(baseUrl + "todos")
 			.then(function (res) {
+				console.log(res)
 				todoList = res
 				draw(todoList)
 			})
@@ -17,7 +19,8 @@ function TodoService() {
 	}
 
 	this.addTodo = function addTodo(todo, cb) {
-		$.post(baseUrl, todo)
+		
+		$.post(baseUrl + "todos" , todo)
 			.then(function (res) {
 				cb()
 			})
@@ -25,12 +28,13 @@ function TodoService() {
 	}
 
 	this.toggleTodoStatus = function toggleTodoStatus(i, cb) {
+		debugger
 		var todo = todoList[i]
 		todo.completed = !todo.completed
 		$.ajax({
 			method: 'PUT',
 			contentType: 'application/json',
-			url: baseUrl + '/' + i,
+			url: baseUrl + "todos" + '/' + i,
 			data: JSON.stringify(todo)
 		})
 			.then(function (res) {
@@ -43,7 +47,7 @@ function TodoService() {
 		$.ajax({
 			method: 'DELETE',
 			contentType: 'application/json',
-			url: baseUrl + '/' + i,
+			url: baseUrl + "todos" + '/' + i,
 
 		})
 			.then(function (res) {
