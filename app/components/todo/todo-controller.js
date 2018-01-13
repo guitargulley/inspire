@@ -10,8 +10,10 @@ function TodoController() {
 	function draw(todos) {
 		var todoElem = document.getElementById('listItems')
 		var todoTotal = document.getElementById('todoTotal')
+		var deleteAll = document.getElementById('delete-all')
 		var template = ''
 		var completed = 0
+		var checked = 0
 	
 		for (var i = 0; i < todos.length; i++) {
 			
@@ -27,7 +29,7 @@ function TodoController() {
 				<div class="checkbox">
 					<label onchange="app.controllers.todoController.toggleTodoStatus(${i})">
 					<input type="checkbox" value="${i}" checked><s>${todo.todo}</s></label>
-					<a onclick="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-trash-o"></i></a>
+					<button class="btn btn-danger btn-xs pull-right" onclick="app.controllers.todoController.removeTodo(${i})">Delete</button>
 	  			</div>
 				`
 				completed++
@@ -42,6 +44,12 @@ function TodoController() {
 		}
 		todoTotal.innerHTML = `${completed} of ${todos.length}`
 		todoElem.innerHTML = template	
+		if(completed > 0){
+			deleteAll.innerHTML = `<button class="btn btn-danger btn-md pull-right delete-all-btn" onclick="app.controllers.todoController.removeTodos()">Delete All</button>`
+		}
+		else{
+			deleteAll.innerHTML = ""
+		}
 	}
 
 	var formstate = false
@@ -60,32 +68,28 @@ function TodoController() {
 		  formstate = true
 		}
 	  }
-	this.showForm = function showForm(){
-		document.getElementById('toDoForm').classList.remove('hidden')
-		document.getElementById('show-form-btn').classList.add('hidden')
-	}
+	
 	this.addTodoFromForm = function (e) {
 		e.preventDefault() 
-		var form = e.target.toDo.value
+		var form = e.target
 		var todo = {
-			todo : form,
+			todo : form.description.value,
 			completed: false
 		}
-
-		document.getElementById('toDoForm').classList.add('hidden')
-		document.getElementById('show-form-btn').classList.remove('hidden')
-		showButton.innerText = 'Add Something To Do'
-		showButton.className = 'btn'
-		
+		form.description.value = ""
 		todoService.addTodo(todo, getTodos)
 	}
 
 	this.toggleTodoStatus = function toggleTodoStatus(i) {
+		console.log(i)
 		todoService.toggleTodoStatus(i, getTodos)
 	}
 
 	this.removeTodo = function removeTodo(i) {
 		todoService.removeTodo(i, getTodos)
+	}
+	this.removeTodos = function removeTodos() {
+		todoService.removeTodos(getTodos)
 	}
 	
 	todoService.getTodos(draw)

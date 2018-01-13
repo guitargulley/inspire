@@ -12,12 +12,7 @@
 	<div class="container-fluid">
 		<!-- HEADER includes image change and weather app -->
 		<div class="row">
-			<!-- image change -->
-			<div class="col-xs-1 next-image">
-				<button onclick="app.controllers.imageController.getImage()" id="next-image">
-					<i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
-				</button>
-			</div>
+
 			<!-- weather app -->
 			<div id="weather">
 
@@ -30,58 +25,106 @@
 			</div>
 		</div>
 		<!-- footer includes quote and to-do list -->
-		<div class="row footer fixed-bottom">
-			<!-- Quote -->
-			<div id="quote">
+		<div class="row bottom-row footer">
+			<div class="col-xs-3">
+				<div class="bottom-wrapper text-center flex v-bottom h-left">
+					<div class="next-image">
 
-			</div>
-			<!-- TO-DO list -->
-			<div id="todo">
-				<div class="col-sm-2 col-sm-offset-1 todo-area">
-					<h4>Completed:
-						<span id="todoTotal"></span>
-					</h4>
-					<div id="listItems">
-
+						<button onclick="app.controllers.imageController.getImage()" id="next-image">
+							<i class="fa fa-picture-o fa-2x" aria-hidden="true"></i>
+						</button>
 					</div>
-					<button class="btn add" id="show-form-btn" onclick="app.controllers.todoController.showTodoForm()">Add Something To Do</button>
-					<!-- hidden form to submit new To do item -->
-					<form id="toDoForm" class="form hidden" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
-						<div class="form-group">
-							<label for="toDo">To Do:</label>
-							<input type="text" name="toDo" class="form-control" placeholder="TO DO?" required>
-						</div>
-						<div class="form-group">
-							<button class="btn" type="submit">Add To Do</button>
-						</div>
-					</form>
 				</div>
 			</div>
+			<div class="col-xs-6">
+				<div class="bottom-wrapper flex v-bottom h-center">
+					<!-- Quote -->
+					<div id="quote" class="quote item-background text-center">
+					</div>
+				</div>
+			</div>
+			<!-- TO-DO list -->
 
+			<div class="col-sm-3">
+				<div class="bottom-wrapper flex v-bottom h-right todo-area">
+					<div class="todo-wrapper item-background">
+						<h4>Completed:
+							<span id="todoTotal"></span>
+						</h4>
+
+						<!-- <button class="btn add" id="show-form-btn" onclick="app.controllers.todoController.showTodoForm()">Add Something To Do</button> -->
+						<!-- hidden form to submit new To do item -->
+						<form id="toDoForm" class="form-inline" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+							<div class="form-group">
+								<input type="text" name="description" class="form-control" placeholder="TO DO?" required>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-sm" type="submit">
+									<i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
+								</button>
+								<span id="delete-all"></span>
+							</div>
+						</form>
+						<div id="listItems">
+
+						</div>
+					</div>
+				</div>
+				<!-- <div class="row bottom-row">
+			<div class="col-sm-6">
+				<div class="bottom-wrapper flex v-bottom h-center">
+					<div id="quote" class="quote item-background text-center">
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="bottom-wrapper flex v-bottom h-center">
+					<div class="todo-wrapper item-background">
+						<p>To Do:
+							<span id="completed-count">0</span>/<span id="todo-count">0</span> Completed
+						</p>
+						<form class="form-inline" onsubmit="app.controllers.todoController.addTodoFromForm(event)">
+							<div class="form-group">
+								<input type="text" name="description" class="form-control" placeholder="New Item" required>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-main btn-alt" type="submit">
+									<i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
+								</button>
+							</div>
+						</form>
+						<div id="todo">
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
+ -->
+
+			</div>
+		</div>
 
 
 
 
-	<!--JS Libraries-->
-	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<!--Services-->
-	<script src="app/components/weather/weather-service.js"></script>
-	<script src="app/components/image/image-service.js"></script>
-	<script src="app/components/quote/quote-service.js"></script>
-	<script src="app/components/todo/todo-service.js"></script>
-	<script src="app/components/clock/clock-service.js"></script>
+		<!--JS Libraries-->
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<!--Services-->
+		<script src="app/components/weather/weather-service.js"></script>
+		<script src="app/components/image/image-service.js"></script>
+		<script src="app/components/quote/quote-service.js"></script>
+		<script src="app/components/todo/todo-service.js"></script>
+		<script src="app/components/clock/clock-service.js"></script>
 
-	<!--Controllers-->
-	<script src="app/components/weather/weather-controller.js"></script>
-	<script src="app/components/image/image-controller.js"></script>
-	<script src="app/components/quote/quote-controller.js"></script>
-	<script src="app/components/todo/todo-controller.js"></script>
-	<script src="app/components/clock/clock-controller.js"></script>
+		<!--Controllers-->
+		<script src="app/components/weather/weather-controller.js"></script>
+		<script src="app/components/image/image-controller.js"></script>
+		<script src="app/components/quote/quote-controller.js"></script>
+		<script src="app/components/todo/todo-controller.js"></script>
+		<script src="app/components/clock/clock-controller.js"></script>
 
-	<!--Initialize App-->
-	<script src="app/init.js"></script>
+		<!--Initialize App-->
+		<script src="app/init.js"></script>
 </body>
 
 </html>

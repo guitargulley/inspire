@@ -1,18 +1,64 @@
+/* flex grid */
+.flex {
+    display: flex;
+}
+
+.flex.wrap {
+    flex-wrap: wrap;
+}
+
+.flex.v-center {
+    align-items: center;
+}
+
+.flex.v-bottom {
+    align-items: flex-end;
+}
+
+.flex.v-top {
+    align-items: flex-start;
+}
+
+.flex.h-center {
+    justify-content: center;
+}
+
+.flex.h-left {
+    justify-content: left;
+}
+
+.flex.h-right {
+    justify-content: right;
+}
+
+.flex.h-space-between {
+    justify-content: space-between;
+}
+
+.flex.text-wrap {
+    flex-wrap: wrap;
+    word-break: break-all;
+}
+.bottom-wrapper {
+    height: 20vh;
+}
+/*  */
 body{
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
     height: 100%;
 }
-.todo-area{
-    border: 2px ridge whitesmoke;
+.item-background {
+    background: rgba(0, 0, 0, 0.555);
+    opacity: 0.85;
 }
-i{
-    color: whitesmoke;
-}
+
 .btn{
     background-color: black;
-    color: whitesmoke;
+    color: white;
 }
 .author{
     display:none;
@@ -25,17 +71,20 @@ i{
     display:block;
 }
 .weather{
-    background-color: rgba(0, 0, 0, 0.295);
+    background: rgba(0, 0, 0, 0.555);
+    opacity: 0.85;
     color:whitesmoke;
     border: 2px ridge whitesmoke;
     border-radius: 20px;
 }
 .footer{
     position:fixed;
-    bottom: 0;
     width:100%;
-    background-color: rgba(0, 0, 0, 0.295);
-    color:whitesmoke;
+    bottom: 0;
+    color:white;
+}
+.delete-all-btn {
+    margin-left: 3em;
 }
 .time{
     display: inline-block;
@@ -44,7 +93,8 @@ i{
     border: 2px ridge whitesmoke;
     border-radius: 30px;
     padding: 10px;
-    background-color:rgba(0, 0, 0, 0.295);
+    background: rgba(0, 0, 0, 0.555);
+    opacity: 0.85;
     color: whitesmoke;
 }
 .time h1{
@@ -87,14 +137,23 @@ i{
     background-color:rgba(0, 0, 0, 0.295);
     color: whitesmoke;
 }
-.add{
-    background:black;
-    color:whitesmoke;
-    outline:none;
+.todo-wrapper {
+    font-size: 1em;
+    max-height: 25em;
+    padding: 2em;
+    overflow-y: scroll;
+}
+
+.form-control {
+    color: #fff;
+    background: #000;
+}
+.list-items {
+    color: white;
 }
 .next-image{
     height: 15px;
-    margin-bottom: 3px;
+    margin-bottom: 2em;
     border:none;
 }
 .next-image button{
