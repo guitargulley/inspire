@@ -1,7 +1,8 @@
 function TodoService() {
 	// A local copy of your todos
 	var todoList = []
-	var baseUrl = "http://localhost:3000/api/"
+	var baseUrl = "https://bg-inspire.herokuapp.com/"
+	// "http://localhost:3000/api/"
 	// 'https://inspire-server.herokuapp.com/api/todos/brandongulley'
 
 	function logError(err) {
