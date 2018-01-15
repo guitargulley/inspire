@@ -1,9 +1,12 @@
 function TodoService() {
 	// A local copy of your todos
 	var todoList = []
-	var baseUrl = "https://bg-inspire.herokuapp.com/"
-	// "http://localhost:3000/api/"
+	// var url = '//bcw-getter.herokuapp.com/?url=';
+	// var url2 = "https://bg-inspire.herokuapp.com/api/"
+	// var baseUrl = url + encodeURIComponent(url2);
+	// 
 	// 'https://inspire-server.herokuapp.com/api/todos/brandongulley'
+	var baseUrl ="http://localhost:3000/api/"
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)

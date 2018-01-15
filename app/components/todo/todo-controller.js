@@ -29,7 +29,7 @@ function TodoController() {
 				<div class="checkbox">
 					<label onchange="app.controllers.todoController.toggleTodoStatus(${i})">
 					<input type="checkbox" value="${i}" checked><s>${todo.todo}</s></label>
-					<button class="btn btn-danger btn-xs pull-right" onclick="app.controllers.todoController.removeTodo(${i})">Delete</button>
+					<button class="btn btn-danger btn-xs pull-right" onclick="app.controllers.todoController.removeTodo(${i})"><i class="fa fa-minus" aria-hidden="true"></i></button>
 	  			</div>
 				`
 				completed++
