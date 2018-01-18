@@ -1,13 +1,13 @@
 function TodoService() {
 	let api = axios.create({
-		baseURL: '/api/',
+		baseURL: 'https://gulley-inspire.herokuapp.com/api/',
 		timeout: 2000,
 		withCredentials: true
 	  })
 	// A local copy of your todos
 	var todoList = []
 
-	var baseUrl ="https://gulley-inspire.herokuapp.com/api/"
+	// var baseUrl ="https://gulley-inspire.herokuapp.com/api/"
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
