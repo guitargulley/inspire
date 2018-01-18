@@ -14,7 +14,8 @@ function TodoService() {
 	}
 
 	this.getTodos = function getTodos(draw) {
-		this.api("todos")
+		var self=this
+		self.api("todos")
 			.then(function (res) {
 				console.log(res)
 				todoList = res.data
@@ -24,8 +25,8 @@ function TodoService() {
 	}
 
 	this.addTodo = function addTodo(todo, cb) {
-		
-		this.api.post("todos" , todo)
+		var self=this
+		self.api.post("todos" , todo)
 			.then(function (res) {
 				cb()
 			})
@@ -33,10 +34,10 @@ function TodoService() {
 	}
 
 	this.toggleTodoStatus = function toggleTodoStatus(i, cb) {
-		debugger
+		var self=this
 		var todo = todoList[i]
 		todo.completed = !todo.completed
-		this.api.put("todos/" + todo._id, todo)
+		self.api.put("todos/" + todo._id, todo)
 			.then(function (res) {
 				cb()
 			})
@@ -44,18 +45,20 @@ function TodoService() {
 	}
 
 	this.removeTodo = function removeTodo(i, cb) {
+		var self=this
 		var todo = todoList[i]
-		this.api.delete("todos" + '/' + todo._id)
+		self.api.delete("todos" + '/' + todo._id)
 			.then(function (res) {
 				cb()
 			})
 	}
 
 	this.removeTodos = function removeTodos(cb){
+		var self=this
 		for(var i=0; i<todoList.length; i++){
 			var todo = todoList[i]
 			if(todo.completed){
-				this.api.delete("todos/" + todo._id)
+				self.api.delete("todos/" + todo._id)
 				.then(function(res){
 					cb()
 				})
