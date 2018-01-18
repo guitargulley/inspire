@@ -1,6 +1,6 @@
 function TodoService() {
 	var baseUrl ="https://gulley-inspire.herokuapp.com"
-	let api = function (){axios.create({
+	 this.api = function (){axios.create({
 		baseURL: baseUrl+'/api/',
 		timeout: 2000,
 		withCredentials: true
