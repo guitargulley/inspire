@@ -6,7 +6,7 @@ function TodoService() {
 	// var baseUrl = url + encodeURIComponent(url2);
 	// 
 	// 'https://inspire-server.herokuapp.com/api/todos/brandongulley'
-	var baseUrl ="http://localhost:3000/api/"
+	var baseUrl ="https://gulley-inspire.herokuapp.com/api"
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
