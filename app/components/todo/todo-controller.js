@@ -4,6 +4,7 @@ function TodoController() {
 
 
 	function getTodos(){
+		debugger
 		todoService.getTodos(draw)
 	}
 

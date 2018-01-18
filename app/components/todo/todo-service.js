@@ -13,10 +13,12 @@ function TodoService() {
 	}
 
 	this.getTodos = function getTodos(draw) {
+		debugger
 		$.get(baseUrl + "todos")
 			.then(function (res) {
+				debugger
 				console.log(res)
-				todoList = res
+				todoList = res.data
 				draw(todoList)
 			})
 			.fail(logError)
@@ -38,7 +40,7 @@ function TodoService() {
 		$.ajax({
 			method: 'PUT',
 			contentType: 'application/json',
-			url: baseUrl + "todos" + '/' + todo._id,
+			url: baseUrl + "todos/" + todo._id,
 			data: JSON.stringify(todo)
 		})
 			.then(function (res) {
