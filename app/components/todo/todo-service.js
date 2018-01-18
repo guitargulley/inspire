@@ -1,5 +1,9 @@
 function TodoService() {
-	
+	let api = axios.create({
+		baseURL: '/api/',
+		timeout: 2000,
+		withCredentials: true
+	  })
 	// A local copy of your todos
 	var todoList = []
 
@@ -10,7 +14,7 @@ function TodoService() {
 	}
 
 	this.getTodos = function getTodos(draw) {
-		axios.get(baseUrl + "todos")
+		api(baseUrl + "todos")
 			.then(function (res) {
 				console.log(res)
 				todoList = res.data
@@ -21,7 +25,7 @@ function TodoService() {
 
 	this.addTodo = function addTodo(todo, cb) {
 		
-		axios.post(baseUrl + "todos" , todo)
+		api.post(baseUrl + "todos" , todo)
 			.then(function (res) {
 				cb()
 			})
@@ -32,12 +36,7 @@ function TodoService() {
 		debugger
 		var todo = todoList[i]
 		todo.completed = !todo.completed
-		axios({
-			method: 'PUT',
-			contentType: 'application/json',
-			url: baseUrl + "todos/" + todo._id,
-			data: JSON.stringify(todo)
-		})
+		api.put(baseUrl + "todos/" + todo._id, todo)
 			.then(function (res) {
 				cb()
 			})
@@ -46,12 +45,7 @@ function TodoService() {
 
 	this.removeTodo = function removeTodo(i, cb) {
 		var todo = todoList[i]
-		axios({
-			method: 'DELETE',
-			contentType: 'application/json',
-			url: baseUrl + "todos" + '/' + todo._id,
-
-		})
+		api.delete(baseUrl + "todos" + '/' + todo._id)
 			.then(function (res) {
 				cb()
 			})
@@ -61,11 +55,7 @@ function TodoService() {
 		for(var i=0; i<todoList.length; i++){
 			var todo = todoList[i]
 			if(todo.completed){
-				axios({
-					method: 'DELETE',
-					contentType: 'application/json',
-					url: baseUrl + "todos" + "/" + todo._id,
-				})
+				api.delete( baseUrl + "todos" + "/" + todo._id)
 				.then(function(res){
 					cb()
 				})
