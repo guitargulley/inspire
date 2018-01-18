@@ -14,7 +14,7 @@ function TodoService() {
 	}
 
 	this.getTodos = function getTodos(draw) {
-		api("todos")
+		axios.get("https://gulley-inspire.herokuapp.com/api/todos")
 			.then(function (res) {
 				console.log(res)
 				todoList = res.data
