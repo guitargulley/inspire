@@ -1,11 +1,8 @@
 function TodoService() {
+	
 	// A local copy of your todos
 	var todoList = []
-	// var url = '//bcw-getter.herokuapp.com/?url=';
-	// var url2 = "https://bg-inspire.herokuapp.com/api/"
-	// var baseUrl = url + encodeURIComponent(url2);
-	// 
-	// 'https://inspire-server.herokuapp.com/api/todos/brandongulley'
+
 	var baseUrl ="https://gulley-inspire.herokuapp.com/api/"
 
 	function logError(err) {
@@ -13,10 +10,8 @@ function TodoService() {
 	}
 
 	this.getTodos = function getTodos(draw) {
-		debugger
-		$.get(baseUrl + "todos")
+		axios.get(baseUrl + "todos")
 			.then(function (res) {
-				debugger
 				console.log(res)
 				todoList = res.data
 				draw(todoList)
@@ -26,7 +21,7 @@ function TodoService() {
 
 	this.addTodo = function addTodo(todo, cb) {
 		
-		$.post(baseUrl + "todos" , todo)
+		axios.post(baseUrl + "todos" , todo)
 			.then(function (res) {
 				cb()
 			})
@@ -37,7 +32,7 @@ function TodoService() {
 		debugger
 		var todo = todoList[i]
 		todo.completed = !todo.completed
-		$.ajax({
+		axios({
 			method: 'PUT',
 			contentType: 'application/json',
 			url: baseUrl + "todos/" + todo._id,
@@ -51,7 +46,7 @@ function TodoService() {
 
 	this.removeTodo = function removeTodo(i, cb) {
 		var todo = todoList[i]
-		$.ajax({
+		axios({
 			method: 'DELETE',
 			contentType: 'application/json',
 			url: baseUrl + "todos" + '/' + todo._id,
@@ -66,7 +61,7 @@ function TodoService() {
 		for(var i=0; i<todoList.length; i++){
 			var todo = todoList[i]
 			if(todo.completed){
-				$.ajax({
+				axios({
 					method: 'DELETE',
 					contentType: 'application/json',
 					url: baseUrl + "todos" + "/" + todo._id,
