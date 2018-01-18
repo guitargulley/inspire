@@ -1,10 +1,10 @@
 function TodoService() {
 	var baseUrl ="https://gulley-inspire.herokuapp.com"
-	let api = axios.create({
+	let api = function (){axios.create({
 		baseURL: baseUrl+'/api/',
 		timeout: 2000,
 		withCredentials: true
-	  })
+	  })}
 	// A local copy of your todos
 	var todoList = []
 
