@@ -1,6 +1,6 @@
 function TodoService() {
 	var baseUrl ="https://gulley-inspire.herokuapp.com"
-	this.api = axios.create({
+	let api = axios.create({
 		baseURL: baseUrl+'/api/',
 		timeout: 2000,
 		withCredentials: true
@@ -14,7 +14,7 @@ function TodoService() {
 	}
 
 	this.getTodos = function getTodos(draw) {
-		api("todos")
+		this.api("todos")
 			.then(function (res) {
 				console.log(res)
 				todoList = res.data
@@ -25,7 +25,7 @@ function TodoService() {
 
 	this.addTodo = function addTodo(todo, cb) {
 		
-		api.post("todos" , todo)
+		this.api.post("todos" , todo)
 			.then(function (res) {
 				cb()
 			})
@@ -36,7 +36,7 @@ function TodoService() {
 		debugger
 		var todo = todoList[i]
 		todo.completed = !todo.completed
-		api.put("todos/" + todo._id, todo)
+		this.api.put("todos/" + todo._id, todo)
 			.then(function (res) {
 				cb()
 			})
@@ -45,7 +45,7 @@ function TodoService() {
 
 	this.removeTodo = function removeTodo(i, cb) {
 		var todo = todoList[i]
-		api.delete("todos" + '/' + todo._id)
+		this.api.delete("todos" + '/' + todo._id)
 			.then(function (res) {
 				cb()
 			})
@@ -55,7 +55,7 @@ function TodoService() {
 		for(var i=0; i<todoList.length; i++){
 			var todo = todoList[i]
 			if(todo.completed){
-				api.delete("todos/" + todo._id)
+				this.api.delete("todos/" + todo._id)
 				.then(function(res){
 					cb()
 				})
