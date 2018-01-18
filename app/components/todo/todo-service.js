@@ -14,7 +14,7 @@ function TodoService() {
 	}
 
 	this.getTodos = function getTodos(draw) {
-		api("todos")
+		api(baseURL + "todos")
 			.then(function (res) {
 				console.log(res)
 				todoList = res.data
@@ -55,7 +55,7 @@ function TodoService() {
 		for(var i=0; i<todoList.length; i++){
 			var todo = todoList[i]
 			if(todo.completed){
-				api.delete("todos" + "/" + todo._id)
+				api.delete("todos/" + todo._id)
 				.then(function(res){
 					cb()
 				})
