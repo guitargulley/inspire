@@ -1,6 +1,6 @@
 function TodoService() {
 	let api = axios.create({
-		baseURL: '/api/',
+		baseURL: baseUrl+'/api/',
 		timeout: 2000,
 		withCredentials: true
 	  })
