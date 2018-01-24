@@ -4,7 +4,6 @@ function TodoController() {
 
 
 	function getTodos(){
-		debugger
 		todoService.getTodos(draw)
 	}
 
@@ -45,12 +44,12 @@ function TodoController() {
 		}
 		todoTotal.innerHTML = `${completed} of ${todos.length}`
 		todoElem.innerHTML = template	
-		if(completed > 0){
-			deleteAll.innerHTML = `<button class="btn btn-danger btn-md pull-right delete-all-btn" onclick="app.controllers.todoController.removeTodos()">Delete All</button>`
-		}
-		else{
-			deleteAll.innerHTML = ""
-		}
+		// if(completed > 0){
+		// 	deleteAll.innerHTML = `<button class="btn btn-danger btn-md pull-right delete-all-btn" onclick="app.controllers.todoController.removeTodos()">Delete All</button>`
+		// }
+		// else{
+		// 	deleteAll.innerHTML = ""
+		// }
 	}
 
 	var formstate = false

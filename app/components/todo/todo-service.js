@@ -48,22 +48,22 @@ function TodoService() {
 			cb()
 		})
 	}
-	this.removeTodos = function removeTodos(cb){
-		debugger
-		for(var i=0; i<todoList.length; i++){
-			var todo = todoList[i]
-			if(todo.completed){
-				$.ajax({
-					method: 'DELETE',
-					contentType: 'application/json',
-					url: baseUrl +"/" + i,
-				})
-				.then(function(res){
-					cb()
-				})
+	// this.removeTodos = function removeTodos(cb){
+	// 	for(var i=0; i<todoList.length; i++){
+	// 		debugger
+	// 		var todo = todoList[i]
+	// 		if(todo.completed){
+	// 			$.ajax({
+	// 				method: 'DELETE',
+	// 				contentType: 'application/json',
+	// 				url: baseUrl +"/" + i,
+	// 			})
+	// 			.then(function(res){
+	// 				cb()
+	// 			})
 				
-			}
-		}
-	}
+	// 		}
+	// 	}
+	// }
 
 }
