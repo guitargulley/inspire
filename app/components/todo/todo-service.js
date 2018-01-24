@@ -1,31 +1,23 @@
 function TodoService() {
-	var baseUrl ="https://gulley-inspire.herokuapp.com"
-	let api = function(){axios.create({
-		baseURL: baseUrl+'/api/',
-		timeout: 2000,
-		withCredentials: true
-	  })}
 	// A local copy of your todos
 	var todoList = []
-
+	var baseUrl = 'https://inspire-server.herokuapp.com/api/todos/brandongulley'
 
 	function logError(err) {
 		console.error('UMM SOMETHING BROKE: ', err)
 	}
 
 	this.getTodos = function getTodos(draw) {
-		axios.get("https://gulley-inspire.herokuapp.com/api/todos")
+		$.get(baseUrl)
 			.then(function (res) {
-				console.log(res)
-				todoList = res.data
+				todoList = res
 				draw(todoList)
 			})
 			.fail(logError)
 	}
 
 	this.addTodo = function addTodo(todo, cb) {
-		
-		api.post("todos" , todo)
+		$.post(baseUrl, todo)
 			.then(function (res) {
 				cb()
 			})
@@ -33,29 +25,39 @@ function TodoService() {
 	}
 
 	this.toggleTodoStatus = function toggleTodoStatus(i, cb) {
-		debugger
 		var todo = todoList[i]
 		todo.completed = !todo.completed
-		api.put("todos/" + todo._id, todo)
+		$.ajax({
+			method: 'PUT',
+			contentType: 'application/json',
+			url: baseUrl + '/' + i,
+			data: JSON.stringify(todo)
+		})
 			.then(function (res) {
 				cb()
 			})
 			.fail(logError)
 	}
-
-	this.removeTodo = function removeTodo(i, cb) {
-		var todo = todoList[i]
-		api.delete("todos" + '/' + todo._id)
-			.then(function (res) {
-				cb()
-			})
+	this.removeTodo = function removeTodo(i, cb){
+		$.ajax({
+			method: 'DELETE',
+			contentType: 'application/json',
+			url: baseUrl + "/" + i 
+		})
+		.then(function(res){
+			cb()
+		})
 	}
-
 	this.removeTodos = function removeTodos(cb){
+		debugger
 		for(var i=0; i<todoList.length; i++){
 			var todo = todoList[i]
 			if(todo.completed){
-				api.delete("todos/" + todo._id)
+				$.ajax({
+					method: 'DELETE',
+					contentType: 'application/json',
+					url: baseUrl +"/" + i,
+				})
 				.then(function(res){
 					cb()
 				})
